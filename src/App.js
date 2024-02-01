@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar/SearchBar';
 import { theme } from './default/theme';
 import ItemList from './components/ItemList/ItemList';
 import { RecoilRoot } from 'recoil';
+import { Suspense } from 'react';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <div className="App">
       <Header/>
       <SearchBar/>
-      <ItemList/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ItemList/>
+      </Suspense>
     </div>
     </ThemeProvider>
     </RecoilRoot>
