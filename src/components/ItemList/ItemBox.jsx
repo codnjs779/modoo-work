@@ -1,6 +1,7 @@
 import React from 'react';
 import { BookmarkBorder as BookmarkBorderIcon, Bookmark as BookmarkIcon } from '@mui/icons-material';
 import {ItemBoxStyle} from './ItemBoxStyle';
+import { theme } from '../../default/theme';
 
 function ItemBox({props}) {
     const {item, theme} = props;
@@ -33,47 +34,40 @@ function ItemBox({props}) {
             >
             <span>{item.salary}</span> <span> | {item.salaryType}</span>
             </ItemBoxStyle.TxtManager>
-            
-            
-            <ItemBoxStyle.TxtBox fontsetinfo={{size:theme.fontSize.sm}}>
-            <div>신체능력</div>
-            <PhysicalEnvChips phyEnv={physicalEnv}/>
-            </ItemBoxStyle.TxtBox>
-          </div>
-          <div>
-
-            <ItemBoxStyle.JobContentsEctBox fontsetinfo={{size:theme.fontSize.sm}}>
             <ItemBoxStyle.TxtManager 
                     fontsetinfo={{ size: 'inherit', 
                         color:theme.colorPalette.baseColor,
                         bold:theme.fontBold.mdBold }}
                         >📞 {item.contactNum}</ItemBoxStyle.TxtManager>
-            <ItemBoxStyle.TxtManager
-                fontsetinfo={{ size: theme.fontSize.xs, 
+            
+            
+            <ItemBoxStyle.TxtBox fontsetinfo={{size:theme.fontSize.sm}}>
+            <div>신체능력</div>
+            <PhysicalEnvChips props={{phyEnv:physicalEnv, theme:theme}}/>
+            </ItemBoxStyle.TxtBox>
+            <ItemBoxStyle.PeriodBox fontsetinfo={{size: theme.fontSize.xs, 
                     color:theme.colorPalette.darkGray,
-                    bold:theme.fontBold.base}}>{item.recruitPeriod}</ItemBoxStyle.TxtManager>
-            </ItemBoxStyle.JobContentsEctBox>
+                    bold:theme.fontBold.base}}>
+                    {item.recruitPeriod} 
+            </ItemBoxStyle.PeriodBox>
           </div>
-        </ItemBoxStyle.ItemBox>
+         </ItemBoxStyle.ItemBox>
 
           
     );
 }
 export default ItemBox;
 
-export function PhysicalEnvChips({phyEnv}){
-    const envEntries = Object.entries(phyEnv);
+export function PhysicalEnvChips({props}){
+    const envEntries = Object.entries(props.phyEnv);
+
     return (
-        <div>
+        <ItemBoxStyle.PhysicalContainer>
             {envEntries.map(([key, value]) => (
-                <>
-                 <span key={key}>
-                    {value?.color === 1 ? "서있기:" : null}
-                    {value?.title}
-                    </span>
-                </>
-               
+            value?.title === undefined ? null :   <ItemBoxStyle.PhysicalChips info={{value:value, theme:props.theme}} key={key}>
+            { value?.title}
+             </ItemBoxStyle.PhysicalChips>
             ))}
-        </div>
+        </ItemBoxStyle.PhysicalContainer>
     );
 }
