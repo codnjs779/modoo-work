@@ -1,16 +1,28 @@
 import styled from "styled-components";
 
-export const HeaderWrapper = styled.div`
-display:flex;
-justify-content:space-between;
+const HeaderContainer  = styled.div`
 align-items:center;
+display: grid;
+grid-template-columns: 2fr 3fr;
+`
+const HeaderWrapper = styled.div`
     img {
         width:160px;
     }
-.contactTooltip {
-    cursor:pointer;
-    border:0.9px solid black;
-    border-radius:${(props) => (props.theme.radius.sm)};
-    padding:3px;
+`
+
+const MenuTabContainer = styled.div`
+display: flex;
+justify-content: space-evenly;
+font-size: ${(props) => (props.theme.fontSize.md)};
+font-weight: ${(props) => (props.theme.fontBold.mdBold)};
+div{
+    cursor
 }
-`;
+`
+
+export const HeaderWrapperStyle = {
+HeaderWrapper,
+HeaderContainer,
+MenuTabContainer
+}

@@ -1,27 +1,29 @@
 import React, {useContext} from 'react';
 import logo from "../../images/logo.png";
-import { HeaderWrapper } from './HeaderStyle';
-import Tooltip from '@mui/material/Tooltip';
+import {HeaderWrapperStyle} from './HeaderStyle'
 import { ThemeContext } from 'styled-components';
+import { isActiveBookMarkState } from '../../recoil/atoms';
+import { useRecoilState } from 'recoil';
 
 const Header = () => {
-    const contactEmail = "chaenny.choi@gmail.com"
     const theme = useContext(ThemeContext);
+    const [isActiveBookMark, setIsActiveBookMark] = useRecoilState(isActiveBookMarkState)
 
+    const filterBookedItem = () => {
+        setIsActiveBookMark(!isActiveBookMark)
+      }
+    
     return (
-            <HeaderWrapper theme={theme}>
-                <div>
+        <HeaderWrapperStyle.HeaderContainer>
+            <HeaderWrapperStyle.HeaderWrapper theme={theme}>
                     <img src={logo} alt="logo" />
-                </div>
+                </HeaderWrapperStyle.HeaderWrapper>
+                <HeaderWrapperStyle.MenuTabContainer>
+                <div onClick={filterBookedItem}> 북마크 </div>
+                <div>문의 </div>
+                </HeaderWrapperStyle.MenuTabContainer>
 
-                <div className='contactTooltip'>
-                <Tooltip title={contactEmail} placement="top-start">
-                    문의
-                </Tooltip>
-                </div>
-          
-               
-            </HeaderWrapper>
+            </HeaderWrapperStyle.HeaderContainer>
     );
 };
 
