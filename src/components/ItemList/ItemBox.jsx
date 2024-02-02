@@ -2,16 +2,33 @@ import React from 'react';
 import { BookmarkBorder as BookmarkBorderIcon, Bookmark as BookmarkIcon } from '@mui/icons-material';
 import {ItemBoxStyle} from './ItemBoxStyle';
 import { theme } from '../../default/theme';
+import { useRecoilState } from 'recoil';
+import { bookMarkItem } from '../../recoil/atoms';
 
 function ItemBox({props}) {
-    const {item, theme} = props;
-    const physicalEnv = item.physicalEnv;
+  const { item, theme, func } = props;
+  const physicalEnv = item.physicalEnv;
+  const [bookmarkedItems, setBookmarkedItems] = useRecoilState(bookMarkItem);
 
-    return (
-        <ItemBoxStyle.ItemBox>
-          <ItemBoxStyle.ItemBookMark>
-            <BookmarkBorderIcon fontSize='large'/>
-            {/* <BookmarkIcon/> */}
+  const isBookmarked = bookmarkedItems.includes(item.id);
+
+  const toggleBookmark = (id) => {
+    func(id)
+    if (bookmarkedItems.includes(id)) {
+      setBookmarkedItems((prev) => prev.filter((itemId) => itemId !== id));
+    } else {
+      setBookmarkedItems((prev) => [...prev, id]);
+    }
+  };
+
+  return (
+    <ItemBoxStyle.ItemBox>
+      <ItemBoxStyle.ItemBookMark>
+        {isBookmarked ? (
+          <BookmarkIcon fontSize='large' onClick={() => toggleBookmark(item.id)} />
+        ) : (
+          <BookmarkBorderIcon fontSize='large' onClick={() => toggleBookmark(item.id)} />
+        )}
           </ItemBoxStyle.ItemBookMark>
 
           <div>
