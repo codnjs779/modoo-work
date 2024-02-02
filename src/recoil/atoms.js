@@ -13,4 +13,14 @@ export const infiniteScrollState = atom({
     default:1,
 })
 
+export const isActiveBookMarkState = atom({
+    key:'onlyBookMarkItem',
+    default:false,
+})
+
+export const bookMarkItem  = atom({
+    key:'bookMark',
+   default:[],
+})
+
 
