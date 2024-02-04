@@ -7,7 +7,7 @@ const ItemBox = styled.div`
     grid-template-columns: 0.8fr 4.2fr;
     padding:10px;
     cursor:pointer;
-
+ 
 &:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     transform: scale(1.02);
