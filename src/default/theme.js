@@ -13,6 +13,7 @@ const fontSize = {
   base: '1rem',
   md: '1.25rem',
   lg: '1.5rem',
+  xxlg:'2.6rem',
 };
 
 const colorPalette = {
@@ -20,7 +21,10 @@ const colorPalette = {
     darkGray:"#737373",
     mainColor:"#488aa2",
     baseColor:"black",
-    grayShdow:"rgba(0, 0, 0, 0.1)"
+    grayShdow:"rgba(0, 0, 0, 0.1)",
+    lightMain:"#AAD7D9",
+    fontDarkGray:'#3E3E3E',
+    white:'white',
 }
 
 const radius = {
