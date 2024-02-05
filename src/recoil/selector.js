@@ -1,5 +1,5 @@
 import { selectorFamily } from "recoil";
-import { axiosData } from "../apis/jobsData";
+import { axiosData } from "../service/api/jobList";
 import { jobsListState } from "./atoms";
 
 export const fetchJobData = selectorFamily({
@@ -8,7 +8,7 @@ export const fetchJobData = selectorFamily({
         const res = await axiosData({ nm:params.nm, row:params.row });
         return res;
     },
-});
+  });
 
 export const bookmarkFilterList = selectorFamily({
     key: 'filterBookMarkItem',
@@ -18,7 +18,7 @@ export const bookmarkFilterList = selectorFamily({
     const filteredJobs = jobsList.processedJobs.filter((job) =>
       bookmarkId.includes(job.id)
     );
-
+    
     return filteredJobs;
   },
   });

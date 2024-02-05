@@ -1,16 +1,27 @@
 import { atom } from "recoil"
-import { axiosData } from "../apis/jobsData"
+
+export const isLoadingState = atom({
+    key:'isLoadingState',
+    default: false,
+})
+
 
 export const jobsListState = atom({
     key:'jobListState',
     default: {
         processedJobs: [],
+        total: 0,
       },
 })
 
-export const infiniteScrollState = atom({
-    key:'infiniteScroll',
+export const moreLoadState = atom({
+    key:'moreLoad',
     default:1,
+})
+
+export const moreHasState = atom({
+    key:'hasMore',
+    default: true,
 })
 
 export const isActiveBookMarkState = atom({
@@ -22,5 +33,3 @@ export const bookMarkItem  = atom({
     key:'bookMark',
    default:[],
 })
-
-
