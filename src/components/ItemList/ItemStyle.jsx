@@ -7,6 +7,13 @@ const ItemListContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    position: relative;
+    .muibtn {
+        position: absolute;
+        bottom: -90px;
+        width: 100%;
+        background-color:  ${(props) => props.theme.colorPalette.mainColor};
+    }
     @media (max-width: ${(props) => props.theme.windowSize.base}) {
         grid-template-columns: repeat(1, 1fr);
       }
@@ -15,6 +22,7 @@ const ItemListContainer = styled.div`
 const ItemBigContainer = styled.div`
    overflow: auto; 
    height: 700px;
+
 `
 
 
