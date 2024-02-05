@@ -1,11 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import ItemBox from './ItemBox';
 import { ItemStyle } from './ItemStyle';
 import { ThemeContext } from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import moreLoad from 'react-infinite-scroller';
-import { bookmarkFilterList, fetchJobData } from '../../recoil/selector';
-import { bookMarkItem, moreHasState, moreLoadState, isActiveBookMarkState, isLoadingState, jobsListState } from '../../recoil/atoms';
+import { bookmarkFilterList } from '../../recoil/selector';
+import { bookMarkItem, moreHasState, moreLoadState, isActiveBookMarkState, jobsListState } from '../../recoil/atoms';
 import useScrollJobList from '../../hooks/useScrollJobList';
 import Button from '@mui/material/Button';
 

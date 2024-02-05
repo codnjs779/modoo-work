@@ -3,10 +3,12 @@ import styled from "styled-components"
 const ItemListContainer = styled.div`
     max-width: ${(props) => props.theme.windowSize.large};
     margin: 5rem auto 10rem auto;
-    width: 100%;
+    width: 95%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    height: 100%;
     gap: 1rem;
+    
     position: relative;
     .muibtn {
         position: absolute;
@@ -19,15 +21,8 @@ const ItemListContainer = styled.div`
       }
 `
 
-const ItemBigContainer = styled.div`
-   overflow: auto; 
-   height: 700px;
-
-`
-
 
 
 export const ItemStyle = {
     ItemListContainer,
-    ItemBigContainer
 }
