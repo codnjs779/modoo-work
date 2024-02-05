@@ -1,7 +1,6 @@
 import React from 'react';
 import { BookmarkBorder as BookmarkBorderIcon, Bookmark as BookmarkIcon } from '@mui/icons-material';
 import {ItemBoxStyle} from './ItemBoxStyle';
-import { theme } from '../../default/theme';
 import { useRecoilState } from 'recoil';
 import { bookMarkItem } from '../../recoil/atoms';
 
@@ -9,7 +8,6 @@ function ItemBox({props}) {
   const { item, theme, func } = props;
   const physicalEnv = item.physicalEnv;
   const [bookmarkedItems, setBookmarkedItems] = useRecoilState(bookMarkItem);
-
   const isBookmarked = bookmarkedItems.includes(item.id);
 
   const toggleBookmark = (id) => {

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { styled as muiSty } from '@mui/material/styles';
 
 const HeaderContainer  = styled.div`
 margin:2.5rem 2.5rem 1rem 4.5rem;
