@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import ItemBox from './ItemBox';
 import { ItemStyle } from './ItemStyle';
 import { ThemeContext } from 'styled-components';
@@ -18,7 +18,7 @@ function ItemList() {
     const [bookmarkId, setBookMarkId] = useRecoilState(bookMarkItem)
     const [isActiveBookMark, setIsActiveBookMark] = useRecoilState(isActiveBookMarkState)
     const bookMarkItemSelector = useRecoilValue(bookmarkFilterList(bookmarkId));
-    
+    const [stopMoreLoad, setStopMoreLoad] = useState(false) 
     useEffect(() => {
         setScroll({nm:pageNm, row:row})
     },[pageNm, row, setScroll ]);
@@ -26,13 +26,14 @@ function ItemList() {
       const moreLoadFunc = () => {
         
         const totalPages = Math.ceil(jobList.total / row);
-        if (pageNm <= totalPages) {
+        if (pageNm < totalPages) {
           setScroll({nm:pageNm, row:row})
 
           setPageNm((prev) => prev + 1);
           const allDataLoaded = jobList.processedJobs.length >= jobList.total;
           setHasMore(!allDataLoaded);
         } else {
+            setStopMoreLoad(true)
           setHasMore(false);
         }
       };
@@ -70,7 +71,9 @@ const bookmarkSave = (id) => {
                }}
              />
            ))} 
-            <Button  className='muibtn' onClick={() => moreLoadFunc()} variant="contained">더보기</Button>
+           {stopMoreLoad ?  <Button  className='muibtn'  disabled>더보기</Button>
+ :  <Button  className='muibtn' onClick={() => moreLoadFunc()} variant="contained">더보기</Button>
+}
            
      </ItemStyle.ItemListContainer> 
     )
