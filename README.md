@@ -63,9 +63,9 @@ npm start
 ```
 ### 💻 Demo
 ##### 🖥️ Desktop
-<img src="https://github.com/codnjs779/images/issues/1#issue-2118926429" width="800" height="600"/>
+<img width="1451" alt="스크린샷 2024-02-06 오전 12 58 05" src="https://github.com/codnjs779/modoo-work/assets/76987275/e9a54262-351b-455a-a225-9dda78d84fbc">
 
 
 ##### 📱Mobile
-<img src="https://github.com/codnjs779/images/issues/2#issue-2118927313
-" width="400" height="500"/>
+<img width="175" alt="스크린샷 2024-02-06 오전 1 00 30" src="https://github.com/codnjs779/modoo-work/assets/76987275/62e780d8-9665-46b3-9c87-6a38be3b58b5">
+
