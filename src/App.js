@@ -19,7 +19,7 @@ function App() {
       <PageSkin />
       </div>
       <Suspense fallback={<div>loading</div>}>
-      <ItemList /> 
+      {/* <ItemList />  */}
       </Suspense>
     </div>
     </ThemeProvider>

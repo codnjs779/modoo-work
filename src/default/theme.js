@@ -14,6 +14,7 @@ const fontSize = {
   md: '1.25rem',
   lg: '1.5rem',
   xxlg:'2.6rem',
+  mglg: '2.9rem',
 };
 
 const colorPalette = {
