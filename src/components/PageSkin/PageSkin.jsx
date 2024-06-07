@@ -18,10 +18,12 @@ export default PageSkin;
 const PageSkinContainer = styled.div`
 width: 100vw;
 height: 600px;
+position:relative;
 color:${(props) => props.theme.colorPalette.fontDarkGray};
 `
 
 const ImgBox = styled.div`
+    position:relative;
     width: 100vw;
     /* height: 600px; */
     img{
@@ -32,7 +34,10 @@ const ImgBox = styled.div`
     }
 `
 const MainTitle = styled.div`
+position: absolute;
 font-size:  ${(props) => props.theme.fontSize.mglg};
+top: 20px; 
+left: 20px; 
 font-weight: bold;
 margin-left: ${(props) => props.options.margin};
 margin-bottom: 1rem;
@@ -42,6 +47,9 @@ margin-bottom: 1rem;
 `
 
 const SubTitle = styled.div`
+position: absolute;
+top: 60px;
+left: 20px;  
 font-size:  ${(props) => props.theme.fontSize.md};
 margin-left: ${(props) => props.options.margin};
 @media (max-width: ${(props) => props.theme.windowSize.base}) {
