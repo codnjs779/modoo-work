@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import banner from '../../images/banner.png'
+
 const PageSkin = () => {
     const theme= useContext(ThemeContext)
     return (
@@ -17,7 +18,7 @@ export default PageSkin;
 
 const PageSkinContainer = styled.div`
 width: 100vw;
-height: 600px;
+min-height: 5rem;
 position:relative;
 color:${(props) => props.theme.colorPalette.fontDarkGray};
 `
@@ -30,13 +31,13 @@ const ImgBox = styled.div`
         width: 100vw;
         max-height: 600px;
     background-position: center;
-
+    
     }
 `
 const MainTitle = styled.div`
 position: absolute;
 font-size:  ${(props) => props.theme.fontSize.mglg};
-top: 20px; 
+top: 1.5rem; 
 left: 20px; 
 font-weight: bold;
 margin-left: ${(props) => props.options.margin};
@@ -48,12 +49,13 @@ margin-bottom: 1rem;
 
 const SubTitle = styled.div`
 position: absolute;
-top: 60px;
+top: 5.5rem;
 left: 20px;  
-font-size:  ${(props) => props.theme.fontSize.md};
+font-size:  ${(props) => props.theme.fontSize.sm};
 margin-left: ${(props) => props.options.margin};
 @media (max-width: ${(props) => props.theme.windowSize.base}) {
-    font-size:  ${(props) => props.theme.fontSize.sm};
+    font-size:  ${(props) => props.theme.fontSize.xs};
     white-space: pre-wrap;
+    top: 3.5rem;
       }
 `

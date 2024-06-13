@@ -7,6 +7,7 @@ import { bookmarkFilterList } from '../../recoil/selector';
 import { bookMarkItem, moreHasState, moreLoadState, isActiveBookMarkState, jobsListState } from '../../recoil/atoms';
 import useScrollJobList from '../../hooks/useScrollJobList';
 import Button from '@mui/material/Button';
+import PageSkin from '../PageSkin/PageSkin';
 
 function ItemList() {
     const setScroll = useScrollJobList();
@@ -59,8 +60,10 @@ const bookmarkSave = (id) => {
                  />
                ))} 
          </ItemStyle.ItemListContainer>
-        :  
-       <ItemStyle.ItemListContainer theme={theme}>
+        : 
+<>
+<PageSkin/>
+<ItemStyle.ItemListContainer theme={theme}>
        {jobList && jobList.processedJobs.map((i) => (
              <ItemBox
                key={i.id}
@@ -71,14 +74,11 @@ const bookmarkSave = (id) => {
                }}
              />
            ))} 
-           {stopMoreLoad ?  <Button  className='muibtn'  disabled>더보기</Button>
+    {stopMoreLoad ?  <Button  className='muibtn'  disabled>더보기</Button>
  :  <Button  className='muibtn' onClick={() => moreLoadFunc()} variant="contained">더보기</Button>
-}
-           
-     </ItemStyle.ItemListContainer> 
-    )
-   
-    
+}   </ItemStyle.ItemListContainer>
+</>
+        )
 }
 
 export default ItemList;

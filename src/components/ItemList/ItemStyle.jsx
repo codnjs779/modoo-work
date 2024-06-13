@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const ItemListContainer = styled.div`
     max-width: ${(props) => props.theme.windowSize.large};
-    margin: 5rem auto 10rem auto;
+    margin: 1rem auto 1rem auto;
     width: 95%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

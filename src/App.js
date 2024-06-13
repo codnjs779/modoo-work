@@ -6,21 +6,16 @@ import ItemList from './components/ItemList/ItemList';
 import { RecoilRoot} from 'recoil';
 import { Suspense } from 'react';
 import React from 'react';
-import PageSkin from './components/PageSkin/PageSkin';
 
 
-function App() {
+function App({children}) {
   return (
     <RecoilRoot>
     <ThemeProvider theme={theme}>
       <div className="App" >
       <Header/>
-      <div className='centerBox'>
-      <PageSkin />
-      </div>
-      <Suspense fallback={<div>loading</div>}>
-      {/* <ItemList />  */}
-      </Suspense>
+        {children}
+      {/* <ItemList/> */}
     </div>
     </ThemeProvider>
     </RecoilRoot>
