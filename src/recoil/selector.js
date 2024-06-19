@@ -1,5 +1,5 @@
 import { selectorFamily } from "recoil";
-import { axiosData } from "../service/api/jobList";
+import { axiosData, detailJobAxiosData } from "../service/api/jobList";
 import { jobsListState } from "./atoms";
 
 export const fetchJobData = selectorFamily({
@@ -22,3 +22,12 @@ export const bookmarkFilterList = selectorFamily({
     return filteredJobs;
   },
   });
+
+export const fetchDetailJobData = selectorFamily({
+  key:'detailJobState',
+  get: (id) => async () => {
+    const res = await detailJobAxiosData(id)
+    return res
+  }
+  
+})

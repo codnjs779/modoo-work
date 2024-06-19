@@ -8,9 +8,11 @@ import { bookMarkItem, moreHasState, moreLoadState, isActiveBookMarkState, jobsL
 import useScrollJobList from '../../hooks/useScrollJobList';
 import Button from '@mui/material/Button';
 import PageSkin from '../PageSkin/PageSkin';
+import useDetailJobList from '../../hooks/detailJobList';
 
 function ItemList() {
     const setScroll = useScrollJobList();
+    const fetchDetailJob = useDetailJobList();
     const theme = useContext(ThemeContext);
     const row = 20;
     const [pageNm, setPageNm] = useRecoilState(moreLoadState);
@@ -20,6 +22,7 @@ function ItemList() {
     const [isActiveBookMark, setIsActiveBookMark] = useRecoilState(isActiveBookMarkState)
     const bookMarkItemSelector = useRecoilValue(bookmarkFilterList(bookmarkId));
     const [stopMoreLoad, setStopMoreLoad] = useState(false) 
+    
     useEffect(() => {
         setScroll({nm:pageNm, row:row})
     },[pageNm, row, setScroll ]);
@@ -46,6 +49,10 @@ const bookmarkSave = (id) => {
     });
   };
 
+const detailJob = (id) => {
+  fetchDetailJob({id:id})
+}
+
     return (
         isActiveBookMark ? 
         <ItemStyle.ItemListContainer theme={theme}>
@@ -71,6 +78,7 @@ const bookmarkSave = (id) => {
                  item: i,
                  theme: theme,
                  func: bookmarkSave,
+                 selectFunc :detailJob,
                }}
              />
            ))} 

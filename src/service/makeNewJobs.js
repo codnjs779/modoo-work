@@ -1,7 +1,7 @@
 export const makeNewJobs = (list) => {
     if (list) {
-      const totalLength = list.totalCount;
-      const processedJobs = list.items.item.map((job) => {
+      const totalLength = list.data.total_count;
+      const processedJobs = list.data.jobs.map((job) => {
         return {
           id: job.rno,
           companyName: job.busplaName,

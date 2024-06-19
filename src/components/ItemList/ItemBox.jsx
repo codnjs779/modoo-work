@@ -3,9 +3,10 @@ import { BookmarkBorder as BookmarkBorderIcon, Bookmark as BookmarkIcon } from '
 import {ItemBoxStyle} from './ItemBoxStyle';
 import { useRecoilState } from 'recoil';
 import { bookMarkItem } from '../../recoil/atoms';
+import axios from 'axios';
 
 function ItemBox({props}) {
-  const { item, theme, func } = props;
+  const { item, theme, func, selectFunc } = props;
   const physicalEnv = item.physicalEnv;
   const [bookmarkedItems, setBookmarkedItems] = useRecoilState(bookMarkItem);
   const isBookmarked = bookmarkedItems.includes(item.id);
@@ -19,8 +20,10 @@ function ItemBox({props}) {
     }
   };
 
+
+
   return (
-    <ItemBoxStyle.ItemBox>
+    <ItemBoxStyle.ItemBox >
       <ItemBoxStyle.ItemBookMark>
         {isBookmarked ? (
           <BookmarkIcon fontSize='large' onClick={() => toggleBookmark(item.id)} />
@@ -29,7 +32,7 @@ function ItemBox({props}) {
         )}
           </ItemBoxStyle.ItemBookMark>
 
-          <div>
+          <div onClick={() => {selectFunc(item.id)}}>
           <ItemBoxStyle.TxtManager 
           fontsetinfo={{ size: theme.fontSize.md, 
                         color:theme.colorPalette.baseColor,

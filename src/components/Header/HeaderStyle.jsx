@@ -12,7 +12,7 @@ grid-template-columns: 2fr 3fr;
 `
 const HeaderWrapper = styled.div`
     img {
-        width:160px;
+        width:100px;
     }
 
 `

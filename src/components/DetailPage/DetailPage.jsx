@@ -12,5 +12,5 @@ const DetailPage = () => {
 export default DetailPage;
 
 const DetailPageStyle = styled.div`
-margin-top: 800px;
+/* margin-top: 800px; */
 `

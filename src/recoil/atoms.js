@@ -10,8 +10,14 @@ export const jobsListState = atom({
     key:'jobListState',
     default: {
         processedJobs: [],
-        total: 0,
       },
+})
+
+export const detailJobState = atom({
+    key:'detailJobState',
+    default: {
+        job: {},
+    }
 })
 
 export const moreLoadState = atom({
