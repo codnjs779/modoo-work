@@ -9,7 +9,7 @@ const Contact = () => {
     const copylink = (email) => {
         navigator.clipboard.writeText(email)
         setVisibleState(true)
-        
+
         setTimeout(() => {
             setVisibleState(false)
         }, 3000);
@@ -59,7 +59,7 @@ const TextStyle = styled.div`
 font-size: ${(props) => (props.options.size)};
 font-weight: ${(props) => (props.options.weight)};
 text-align: center;
-
+cursor:pointer;
 color: ${(props) => (props.options.color)};
 
 `
