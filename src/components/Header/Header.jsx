@@ -5,17 +5,19 @@ import { ThemeContext } from 'styled-components';
 import { isActiveBookMarkState, sizeUpTextState } from '../../recoil/atoms';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import Tooltip from '@mui/material/Tooltip';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const theme = useContext(ThemeContext);
     const [isActiveBookMark, setIsActiveBookMark] = useRecoilState(isActiveBookMarkState)
     // const [sizeUpText, setSizeUpText] = useRecoilState(sizeUpTextState)
+    const nav = useNavigate()
     const filterBookedItem = () => {
         setIsActiveBookMark(!isActiveBookMark)
+        nav('/bookmark')
       }
 
-    const headerMenuTab = [{link:"/", name:'홈'}, {link:"bookmark", name:'북마크'}, {link:"contact",name:'문의하기'}]
+    const headerMenuTab = [{link:"/", name:'홈'}, {link:"contact",name:'문의하기'}]
     const headerMenuSet = () => {
         const link = headerMenuTab.map((i) => {
             return (
@@ -42,7 +44,7 @@ const Header = () => {
                 </HeaderWrapperStyle.HeaderWrapper>
                 <HeaderWrapperStyle.MenuTabContainer>
                 {headerMenuSet()}
-                {/* <div onClick={() => scaleUptxt()}>글자확대</div> */}
+                <div onClick={() => filterBookedItem()}>북마크</div>
                 </HeaderWrapperStyle.MenuTabContainer>
 
             </HeaderWrapperStyle.HeaderContainer>
