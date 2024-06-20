@@ -3,15 +3,14 @@ import logo from "../../images/logo.png";
 import {HeaderWrapperStyle} from './HeaderStyle'
 import { ThemeContext } from 'styled-components';
 import { isActiveBookMarkState, sizeUpTextState } from '../../recoil/atoms';
-import { useRecoilState } from 'recoil';
-import { sizeUpTextState } from '../../recoil/atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
     const theme = useContext(ThemeContext);
     const [isActiveBookMark, setIsActiveBookMark] = useRecoilState(isActiveBookMarkState)
-    const [sizeUpText, setSizeUpText] = useRecoilState(sizeUpTextState)
+    // const [sizeUpText, setSizeUpText] = useRecoilState(sizeUpTextState)
     const filterBookedItem = () => {
         setIsActiveBookMark(!isActiveBookMark)
       }
@@ -20,7 +19,7 @@ const Header = () => {
     const headerMenuSet = () => {
         const link = headerMenuTab.map((i) => {
             return (
-                <Link to={i.link}>
+                <Link to={i.link} key={i.name}>
                 <div>{i.name}</div>
                 </Link>
             )
@@ -30,10 +29,10 @@ const Header = () => {
         return link
     }
 
-   const scaleUptxt = () => {
-        setSizeUpText(!sizeUpText)
-   } 
-    
+//    const scaleUptxt = () => {
+//         setSizeUpText(!sizeUpText)
+//    } 
+
     return (
         <HeaderWrapperStyle.HeaderContainer>
             <HeaderWrapperStyle.HeaderWrapper theme={theme}>
@@ -43,7 +42,7 @@ const Header = () => {
                 </HeaderWrapperStyle.HeaderWrapper>
                 <HeaderWrapperStyle.MenuTabContainer>
                 {headerMenuSet()}
-                <div onClick={() => scaleUptxt()}>글자확대</div>
+                {/* <div onClick={() => scaleUptxt()}>글자확대</div> */}
                 </HeaderWrapperStyle.MenuTabContainer>
 
             </HeaderWrapperStyle.HeaderContainer>
