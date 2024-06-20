@@ -1,23 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import ani from '../../images/ani.gif'
 import SimpleAlert from '../../default/Alert';
-import link from "../../images/link.png"
 const Contact = () => {
     const theme = useContext(ThemeContext)
-    const copylink = () => {
+    const [visibleState, setVisibleState] = useState(false)
+    const myemail = 'chaenny.choi@gmail.com'
+    const copylink = (email) => {
+        navigator.clipboard.writeText(email)
+        setVisibleState(true)
         
+        setTimeout(() => {
+            setVisibleState(false)
+        }, 3000);
+
     }
      return (
         <ContactStyle theme={theme}>
             <img src={ani} alt='emailimg'/>
             <TextStyle options={{size:theme.fontSize.xxlg, weight:600, color:theme.colorPalette.fontDarkGray}}>문의사항</TextStyle>
             <div className='emailbox'>
-            <TextStyle options={{size:theme.fontSize.mg, weight:600, color:theme.colorPalette.darkGray}}>chaenny.choi@gmail.com</TextStyle>
-            <div onClick={() => copylink()}><img src={link} alt="링크"/></div>
+            <TextStyle onClick={() =>copylink(myemail)} options={{size:theme.fontSize.mg, weight:600, color:theme.colorPalette.darkGray}}>{myemail}</TextStyle>
             </div>
             <p>궁금하신 사항이 있으시면 메일주소로 연락 부탁드립니다.</p>
-            <SimpleAlert props={{status:"success", text:"복사완료!"}}/>
+            {
+                visibleState ? <SimpleAlert props={{status:"success", text:"복사완료!"}}/> : null
+            }
+            
         </ContactStyle>
     );
 };
