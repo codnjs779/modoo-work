@@ -4,6 +4,7 @@ import {HeaderWrapperStyle} from './HeaderStyle'
 import { ThemeContext } from 'styled-components';
 import { isActiveBookMarkState, sizeUpTextState } from '../../recoil/atoms';
 import { useRecoilState } from 'recoil';
+import { sizeUpTextState } from '../../recoil/atoms';
 import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom';
 

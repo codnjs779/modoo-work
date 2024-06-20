@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import useRecoilState from "recoil";
+import { detailJobState } from '../../recoil/atoms';
 
 const DetailPage = () => {
     const [selectedItem, setSelectedItem] = useRecoilState(detailJobState)
