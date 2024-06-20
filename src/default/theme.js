@@ -1,5 +1,6 @@
 import { BookmarkBorder as BookmarkBorderIcon, Bookmark as BookmarkIcon } from '@mui/icons-material';
 
+const [sizeUpTextState, setSizeUpState] = useRecoil(sizeUpTextState)
 
 const windowSize = {
     small: '600px',
@@ -8,13 +9,13 @@ const windowSize = {
 };
 
 const fontSize = {
-  xs: '0.65rem',
-  sm: '0.85rem',
-  base: '1rem',
-  md: '1.25rem',
-  lg: '1.5rem',
-  xxlg:'2.6rem',
-  mglg: '2.9rem',
+  xs: !sizeUpTextState ? '0.65rem' : `${0.65 *2} rem`,
+  sm: !sizeUpTextState ? '0.85rem' : `${0.85 *2} rem`,
+  base: !sizeUpTextState ? '1rem' : `${1 *2} rem`,
+  md: !sizeUpTextState ? '1.25rem' : `${1.25 *2} rem`,
+  lg: !sizeUpTextState ? '1.5rem' : `${1.5 *2} rem`,
+  xxlg:!sizeUpTextState ? '2.6rem' : `${2.6 *2} rem`,
+  mglg: !sizeUpTextState ? '2.9rem' : `${2.9 *2} rem`,
 };
 
 const colorPalette = {

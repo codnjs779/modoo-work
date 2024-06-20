@@ -5,6 +5,10 @@ export const isLoadingState = atom({
     default: false,
 })
 
+export const sizeUpTextState = atom({
+    key: 'sizeUpTextState',
+    default: false,
+})
 
 export const jobsListState = atom({
     key:'jobListState',

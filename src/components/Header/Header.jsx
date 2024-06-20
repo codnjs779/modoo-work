@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import logo from "../../images/logo.png";
 import {HeaderWrapperStyle} from './HeaderStyle'
 import { ThemeContext } from 'styled-components';
-import { isActiveBookMarkState } from '../../recoil/atoms';
+import { isActiveBookMarkState, sizeUpTextState } from '../../recoil/atoms';
 import { useRecoilState } from 'recoil';
 import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     const theme = useContext(ThemeContext);
     const [isActiveBookMark, setIsActiveBookMark] = useRecoilState(isActiveBookMarkState)
-    //
+    const [sizeUpText, setSizeUpText] = useRecoilState(sizeUpTextState)
     const filterBookedItem = () => {
         setIsActiveBookMark(!isActiveBookMark)
       }
@@ -29,7 +29,9 @@ const Header = () => {
         return link
     }
 
-    
+   const scaleUptxt = () => {
+        setSizeUpText(!sizeUpText)
+   } 
     
     return (
         <HeaderWrapperStyle.HeaderContainer>
@@ -40,6 +42,7 @@ const Header = () => {
                 </HeaderWrapperStyle.HeaderWrapper>
                 <HeaderWrapperStyle.MenuTabContainer>
                 {headerMenuSet()}
+                <div onClick={() => {scaleUptxt()}}>글자확대</div>
                 </HeaderWrapperStyle.MenuTabContainer>
 
             </HeaderWrapperStyle.HeaderContainer>
