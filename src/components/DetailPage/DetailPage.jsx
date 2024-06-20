@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import useRecoilState from "recoil";
 
 const DetailPage = () => {
+    const [selectedItem, setSelectedItem] = useRecoilState(detailJobState)
+    console.log('this is detailpage atom state', selectedItem)
     return (
         <DetailPageStyle>
             i'm detail page 
