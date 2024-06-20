@@ -42,7 +42,7 @@ const Header = () => {
                 </HeaderWrapperStyle.HeaderWrapper>
                 <HeaderWrapperStyle.MenuTabContainer>
                 {headerMenuSet()}
-                <div onClick={() => {scaleUptxt()}}>글자확대</div>
+                <div onClick={() => scaleUptxt()}>글자확대</div>
                 </HeaderWrapperStyle.MenuTabContainer>
 
             </HeaderWrapperStyle.HeaderContainer>
