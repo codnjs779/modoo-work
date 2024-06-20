@@ -1,5 +1,6 @@
 import { BookmarkBorder as BookmarkBorderIcon, Bookmark as BookmarkIcon } from '@mui/icons-material';
 import useRecoil from 'recoil';
+import { sizeUpTextState } from '../recoil/atoms';
 
 const [sizeUpTextState, setSizeUpState] = useRecoil(sizeUpTextState)
 
