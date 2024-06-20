@@ -43,7 +43,7 @@ function ItemBox({props}) {
 
             <ItemBoxStyle.TxtBox fontsetinfo={{size:theme.fontSize.sm}}>
             <div>{item.companyAddr}</div>
-            <div>{item.requestEdu}</div>
+            {/* <div>{item.requestEdu}</div> */}
             </ItemBoxStyle.TxtBox>
             <ItemBoxStyle.TxtManager
               fontsetinfo={{ size: theme.fontSize.sm, 
@@ -52,17 +52,17 @@ function ItemBox({props}) {
             >
             <span>{item.salary}</span> <span> | {item.salaryType}</span>
             </ItemBoxStyle.TxtManager>
-            <ItemBoxStyle.TxtManager 
+            {/* <ItemBoxStyle.TxtManager 
                     fontsetinfo={{ size: 'inherit', 
                         color:theme.colorPalette.baseColor,
                         bold:theme.fontBold.mdBold }}
-                        >📞 {item.contactNum}</ItemBoxStyle.TxtManager>
+                        >📞 {item.contactNum}</ItemBoxStyle.TxtManager> */}
             
             
-            <ItemBoxStyle.TxtBox fontsetinfo={{size:theme.fontSize.sm}}>
+            {/* <ItemBoxStyle.TxtBox fontsetinfo={{size:theme.fontSize.sm}}>
             <div>신체능력</div>
             <PhysicalEnvChips props={{phyEnv:physicalEnv, theme:theme}}/>
-            </ItemBoxStyle.TxtBox>
+            </ItemBoxStyle.TxtBox> */}
             <ItemBoxStyle.PeriodBox fontsetinfo={{size: theme.fontSize.xs, 
                     color:theme.colorPalette.darkGray,
                     bold:theme.fontBold.base}}>
