@@ -3,6 +3,7 @@ import DetailPage from './components/DetailPage/DetailPage'
 import App from './App'
 import ItemList from './components/ItemList/ItemList'
 import Contact from './components/Contact/Contact'
+import BookmarkPage from './components/BookmarkPage/Bookmark'
 
 export const router = createBrowserRouter([
     {
@@ -12,7 +13,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 index:true,
-                element:<div>임시</div>//<ItemList/>
+                element:<ItemList/>
             },
             {
                 path:"jobid/:id",
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:"bookmark",
-                // element:<ItemDetailPage/>,// 북마크 컴포넌트로 변경 
+                element:<BookmarkPage/>,// 북마크 컴포넌트로 변경 
             },
             {
                 path:"login",
