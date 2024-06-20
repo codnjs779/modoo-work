@@ -2,13 +2,13 @@ import React, {useContext, useEffect, useState} from 'react';
 import ItemBox from './ItemBox';
 import { ItemStyle } from './ItemStyle';
 import { ThemeContext } from 'styled-components';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { bookmarkFilterList } from '../../recoil/selector';
-import { bookMarkItem, moreHasState, moreLoadState, isActiveBookMarkState, jobsListState } from '../../recoil/atoms';
+import { useRecoilState} from 'recoil';
+import { bookMarkItem, moreHasState, moreLoadState, jobsListState } from '../../recoil/atoms';
 import useScrollJobList from '../../hooks/useScrollJobList';
 import Button from '@mui/material/Button';
 import PageSkin from '../PageSkin/PageSkin';
 import useDetailJobList from '../../hooks/detailJobList';
+import { useNavigate } from 'react-router-dom';
 
 function ItemList() {
     const setScroll = useScrollJobList();
@@ -19,9 +19,9 @@ function ItemList() {
     const [hasMore, setHasMore] = useRecoilState(moreHasState)
     const [jobList, setJobList] = useRecoilState(jobsListState);
     const [bookmarkId, setBookMarkId] = useRecoilState(bookMarkItem)
-    const [isActiveBookMark, setIsActiveBookMark] = useRecoilState(isActiveBookMarkState)
-    const bookMarkItemSelector = useRecoilValue(bookmarkFilterList(bookmarkId));
     const [stopMoreLoad, setStopMoreLoad] = useState(false) 
+    const nav  = useNavigate()
+
     
     useEffect(() => {
         setScroll({nm:pageNm, row:row})
@@ -49,28 +49,16 @@ const bookmarkSave = (id) => {
     });
   };
 
+
 const detailJob = (id) => {
   fetchDetailJob({id:id})
+  nav(`/jobid/${id}`)
 }
 
     return (
-        isActiveBookMark ? 
-        <ItemStyle.ItemListContainer theme={theme}>
-           {bookMarkItemSelector.map((i) => (
-                 <ItemBox
-                   key={i.id}
-                   props={{
-                     item: i,
-                     theme: theme,
-                     func: bookmarkSave,
-                   }}
-                 />
-               ))} 
-         </ItemStyle.ItemListContainer>
-        : 
-<>
-<PageSkin/>
-<ItemStyle.ItemListContainer theme={theme}>
+      <>
+      <PageSkin/>
+      <ItemStyle.ItemListContainer theme={theme}>
        {jobList && jobList.processedJobs.map((i) => (
              <ItemBox
                key={i.id}
@@ -85,7 +73,7 @@ const detailJob = (id) => {
     {stopMoreLoad ?  <Button  className='muibtn'  disabled>더보기</Button>
  :  <Button  className='muibtn' onClick={() => moreLoadFunc()} variant="contained">더보기</Button>
 }   </ItemStyle.ItemListContainer>
-</>
+      </>
         )
 }
 

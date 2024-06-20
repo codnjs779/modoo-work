@@ -4,6 +4,7 @@ import {ItemBoxStyle} from './ItemBoxStyle';
 import { useRecoilState } from 'recoil';
 import { bookMarkItem } from '../../recoil/atoms';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function ItemBox({props}) {
   const { item, theme, func, selectFunc } = props;
