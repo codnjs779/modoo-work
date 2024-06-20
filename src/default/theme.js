@@ -36,6 +36,8 @@ const colorPalette = {
     lightMain:"#AAD7D9",
     fontDarkGray:'#3E3E3E',
     white:'white',
+    sigOrange: 'rgba(245,128,39,0.6)',
+    activeColor:"rgb(255, 253, 212)",
 }
 
 const radius = {
