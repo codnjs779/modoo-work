@@ -24,7 +24,6 @@ export const detailJobAxiosData = async(id) => {
     try {
         const res = await axios.get(url+'/'+id);
         const detailJob = res
-        console.log(detailJob)
         return detailJob
     } catch (err) {
         console.error('Error fetching data:', err);
