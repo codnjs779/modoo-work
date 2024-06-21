@@ -15,6 +15,7 @@ export const bookmarkFilterList = selectorFamily({
     get: (bookmarkId) => ({ get }) => {
       const jobsList = get(jobsListState);
 
+
     const filteredJobs = jobsList.processedJobs.filter((job) =>
       bookmarkId.includes(job.id)
     );

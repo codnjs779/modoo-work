@@ -4,7 +4,6 @@
 https://modoo-work.vercel.app/
 
 ### 🎈Introduce
-- 이 프로젝트는 React 상태 관리 라이브러리 Recoil을 연습하기 위한 목적으로 만들었습니다. 
 - API는 공공데이터를 활용하였습니다.
 
 ### 🔥 기술 스택 및 사용 라이브러리
